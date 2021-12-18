@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="3pc-styles.css" />
+  </head>
+  <body>
+    <div class="main_btn">
+      <button id="btn">Alle Kategorien</button>
+    </div>
+
+    <div class="flex-container">
+      <div class="grid-container">
+        <div id="text_box" class="container">
+          <div class="grid_headline">
+            <h2>Alle Kategorien</h2>
+            <span id="close" class="close"></span>
+          </div>
+          <div class="box">Karrierewage</div>
+          <div class="box">Promotion</div>
+          <div class="box">Habilitation</div>
+          <div class="box">Juniorprofessur</div>
+          <div class="box">Berufungs-verfahern</div>
+          <div class="box">Arbeitsplatz</div>
+          <div class="box">Familie Paetnerschaft, Alltag</div>
+          <div class="box">Mobillität</div>
+          <div class="box">Blick aus dem Ausland</div>
+          <div class="box">Allgemein</div>
+        </div>
+        <div class="box_high">
+          <h2 id="display-clicked-text" class="display_title"></h2>
+          <p id="display_content">
+            Der Weg zur Professur ist nicht nur steinig, sondern auch
+            vielfältig: befristete oder unbefristete Stellen, Stellen an
+            Universitäten oder außeruniversitären Forschungseinrichtungen,
+            Stellen im In- oder Ausland, Stipendien, Nachwuchsgruppen – welcher
+            Weg lässt sich am besten mit Familie und Partnerschaft vereinbaren?
+            Was sind die Voraussetzungen dafür, dass sich wissenschaftliche
+            Karriere auf der einen Seite und Familie und Partnerschaft auf der
+            anderen Seite unter einen Hut bringen lassen?
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.getElementById("btn").addEventListener("click", displayData);
+      let elem = document.getElementsByClassName("flex-container");
+      let text_box = document.getElementById("text_box");
+      let boxText = document.getElementById("text_box");
+      let savedText = document.getElementById("display-clicked-text");
+      let showParagraph = document.getElementById("display_content");
+      let closeBtn = document.getElementById("close");
+
+      closeBtn.addEventListener("click", closeBox);
+
+      boxText.addEventListener("click", displayText);
+      function displayText(e) {
+        savedText.innerText = e.target.innerText;
+        showParagraph.style.display = "block";
+      }
+
+      function displayData() {
+        for (let i = 0; i < elem.length; i++) {
+          elem[i].style.display = "flex";
+        }
+      }
+      function closeBox() {
+        for (let i = 0; i < elem.length; i++) {
+          elem[i].style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
